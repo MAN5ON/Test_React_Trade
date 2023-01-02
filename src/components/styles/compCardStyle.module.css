@@ -1,0 +1,25 @@
+.compCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 25px auto;
+    width: 80%;
+    white-space: nowrap;
+}
+
+.main {
+    height: 30px;
+    padding: 5px 15px;
+}
+
+.timer {
+    width: 100%;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgb(225, 150, 150);
+}
+
+.second {
+    background-color: rgb(225, 225, 225);
+}

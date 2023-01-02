@@ -1,0 +1,17 @@
+.tradeTemp {
+  list-style-type: none;
+  margin: 25px auto;
+  width: 20%;
+  white-space: nowrap;
+}
+
+.main {
+  height: 30px;
+  padding: 5px 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.second {
+  background-color: rgb(225, 225, 225);
+}

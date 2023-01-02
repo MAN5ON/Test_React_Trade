@@ -1,0 +1,38 @@
+.information {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.buttons button {
+  margin: 1px auto;
+  padding: 5px 15px;
+
+  font-size: 14px;
+  border-radius: 5px;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.start {
+  background-color: rgb(70, 165, 70);
+}
+
+.update {
+  background-color: rgb(100, 100, 225);
+}
+
+.end {
+  background-color: rgb(225, 60, 60);
+}
+
+button:active {
+  background: none;
+}
