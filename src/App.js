@@ -33,7 +33,11 @@ function App() {
   const handleEnd = () => {
     setTrade(false)
     setTimer(2 * 60)
-    delete participants[turn - 1].showTimer
+    if (turn === 0) {
+      delete participants[participants.length -1].showTimer
+    } else {
+      delete participants[turn - 1].showTimer
+    }
     changeTurn(0)
   }
 
