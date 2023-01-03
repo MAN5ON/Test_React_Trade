@@ -22,24 +22,28 @@ function App() {
     ]
   }, [])
 
+  //функция-хэндл старта торгов
   const handleStart = () => {
     setTrade(true)
     changeTurn(1)
     participants[turn].showTimer = true
-    
-  }
 
+  }
+  //функция-хэндл завершения торгов
   const handleEnd = () => {
     setTrade(false)
     setTimer(2 * 60)
+    delete participants[turn - 1].showTimer
+    changeTurn(0)
   }
 
   useEffect(() => {
-
+    //таймер обратного отсчёта
     const interval = setInterval(() => {
       trade && setTimer((timer) => (timer >= 1 ? timer - 1 : 0))
     }, 1000)
 
+    //обработка обновления счетчика с привязкой очереди к окну компании
     if (timer === 0) {
       if (turn < participants.length - 1) {
         changeTurn(turn => turn + 1)
@@ -48,17 +52,17 @@ function App() {
       }
       participants[turn].showTimer = true
       if (turn === 0) {
-        delete participants[participants.length-1].showTimer
+        delete participants[participants.length - 1].showTimer
       } else {
-        delete participants[turn-1].showTimer
+        delete participants[turn - 1].showTimer
       }
-      setTimer(2*60)
+      setTimer(2 * 60)
     }
     return () => {
       clearInterval(interval)
     }
   }, [trade, timer, participants, turn])
-
+  
   const props = { min, sec }
 
   return (
@@ -67,7 +71,7 @@ function App() {
         <TradeTemp />
         {
           participants.map(participant => (
-            <CompanyCard key={participant.id} {...participant} props={props} />
+            <CompanyCard key={participant.name} {...participant} props={props} />
           ))
         }
       </div>
@@ -78,7 +82,7 @@ function App() {
         </div>
         :
         <div className={s.buttons}>
-          <button className={s.update} onClick={()=>setTimer(0)}>Обновить</button>
+          <button className={s.update} onClick={() => setTimer(0)}>Обновить</button>
           <button className={s.end} onClick={handleEnd}>Завершить торги</button>
         </div>
       }
