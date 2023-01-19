@@ -4,6 +4,7 @@ import { TradeTemp } from './components/tradeTemp';
 import { CompanyCard } from './components/companyCard';
 import s from './components/styles/appStyle.module.css'
 
+// https://github.com/MAN5ON/Test_React_Trade
 function App() {
   const [trade, setTrade] = useState(false)
   const [turn, changeTurn] = useState(0)
